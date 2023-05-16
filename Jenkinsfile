@@ -44,7 +44,7 @@ pipeline{
                 }
             }
         }
-       stage('Static code analysis'){
+        stage('Static code analysis'){
             
             steps{
                 
@@ -52,9 +52,13 @@ pipeline{
                        withSonarQubeEnv(credentialsId: 'bc08ff22-96ff-424a-b814-9af8a6016d6c') {
                         
                         sh 'mvn clean package sonar:sonar'
-                    }
-                   }
-                   stage('Quality Gate Status'){
+                       }
+                }
+                   
+            }   
+                   
+        }           
+        stage('Quality Gate Status'){
                 
                 steps{
                     
@@ -63,11 +67,14 @@ pipeline{
                         waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
                     }
                 }
-            }
-        }
+        }           
+                   
         
-} 
+            
+    }     
+}
  
+
               
             
      
