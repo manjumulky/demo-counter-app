@@ -21,10 +21,7 @@ pipeline{
             
             steps{
                 
-                script{
-                    
-                  sh 'mvn test' 
-                }
+                sh 'mvn test'
             }
         
         } 
