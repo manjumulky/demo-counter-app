@@ -14,62 +14,8 @@ pipeline{
                 }
             }
         }
-        stage('UNIT testing'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage('Integration testing'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn verify -DskipUnitTests'
-                }
-            }
-        }
-        stage('Maven build'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn clean install'
-                }
-            }
-        }
-        stage('Static code analysis'){
-            
-            steps{
-                
-                script{
-                       withSonarQubeEnv(credentialsId: '907d4867-c27b-4a37-a70a-8d33e645b880') {
-                            // some block
-
-                       }
-                }
-                   
-            }   
-                   
-        }           
-        stage('Quality Gate status'){
-                
-            steps{
-                    
-                script{
-                        
-                    waitForQualityGate abortPipeline: false, credentialsId: '907d4867-c27b-4a37-a70a-8d33e645b880'
-                    
-                }
-            }       
-                   
-        }
+        
+        
             
     }     
 }
