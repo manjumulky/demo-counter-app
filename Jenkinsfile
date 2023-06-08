@@ -15,9 +15,17 @@ pipeline{
                     git branch: 'main', url: 'https://github.com/manjumulky/demo-counter-app.git' 
                 }
             }
-        }
+        stage('unit testing'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn test' 
+                }
+            }
         
-        
+        } 
             
     }     
 }
