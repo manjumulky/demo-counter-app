@@ -63,21 +63,21 @@ pipeline{
         stage('upload warfile to nexus'){
             steps{
                 script{
-                   nexusArtifactUploader artifacts: 
-                   [
-                       [
-                           artifactId: 'springboot', 
-                           classifier: '', file: 'target/Uber.jar', 
-                           type: 'jar'
-                           ]
-                        ],
-                        credentialsId: '', 
-                        groupId: 'com.example',
+                    nexusArtifactUploader artifacts: 
+                    [
+                        [
+                            artifactId: 'springboot', 
+                            classifier: '', file: 'target/Uber.jar', 
+                            type: 'jar'
+                            ]
+                        ], 
+                        credentialsId: 'nexus-amar', 
+                        groupId: 'com.example', 
                         nexusUrl: '15.207.16.152:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'demoapp-release', 
-                        version: '1.0.0' 
+                        version: '1.0.0'
                 }
             }
         }
