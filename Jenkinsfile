@@ -74,7 +74,7 @@ pipeline{
                         ], 
                         credentialsId: 'nexus-amar', 
                         groupId: 'com.example', 
-                        nexusUrl: '15.207.16.152:8081', 
+                        nexusUrl: '3.110.104.157:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'demoapp-release', 
