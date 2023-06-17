@@ -63,7 +63,7 @@ pipeline{
         stage('upload warfile to nexus'){
             steps{
                 script{
-                    def readpomVersion = readMavenPom file: 'pom.xml'
+                    def readPomVersion = readMavenPom file: 'pom.xml'
                     nexusArtifactUploader artifacts: 
                     [
                         [
